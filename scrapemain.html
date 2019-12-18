@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Scrape</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/ico" href="images/favicon.ico" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="js/1.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/a.css">
+    </head>
+    <body>
+                    <nav class="navbar bg-dark navbar-dark fixed-top">
+                            <image src="images/loc.png" class="nav-brand" alt="Brand" style="width:40px">
+                            <a class="navbar-brand" href="#">Movie Guide</a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                                    <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="about">About</a>
+                                </li>
+                            </ul>   
+                            </div>
+                    </nav>
+                    <div class="jumbotron text-center">
+                        <br/><br/>
+                        <b><p>We made your movie selection easy by bringing all Movies from different theatres in your region together with details and ratings.
+                        <br/> Happy Movies! </p></b>
+                    </div>
+                    
+            <div id="loading" class="container row-align-items-center">
+                    <br/><br/>
+                    <img src="images/Preloader_7.gif" alt="Loader" id="up"/>
+                    <img src="images/movie.gif" alt="Loader1" id="down"/>
+            </div>
+                    <div id="content">
+                        <br/>
+                    <div class="container-fluid">
+                            <div class="alert alert-info">
+                                    <strong id="Alert">Alert!</strong> Even if you don't find place in below list, type the name and submit.
+                                  </div>
+                    <div ng-app="myApp" ng-controller="namesCtrl">
+                        <form action="find" class="form-inline" name="form" id="form" method="POST">
+                            <input type="text" placeholder="Start searching for your place" name="location" id="location" ng-model="test">  
+                            <ul class="list-group">
+                                <li class="list-group-item" ng-click="myFunc(x)" ng-repeat="x in names | filter:test">
+                                    {{ x }}
+                                </li>
+                            </ul>
+                    </form> 
+                    </div>
+                </div>
+            </div>
+    </body>
+</html>
