@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= place %></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/ico" href="images/favicon.ico" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/b.css">
+        <script src="js/2.js"></script>
+    </head>
+    <body>
+        <nav class="navbar bg-dark navbar-dark fixed-top">
+                    <image src="images/loc.png" class="nav-brand" alt="Brand" style="width:40px">
+                    <a class="navbar-brand" href="/">Movie Guide</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                            <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="about">About</a>
+                        </li>
+                    </ul>   
+                    </div>
+            </nav>
+            <div class="jumbotron text-center">
+              <br/><br/>     
+              <p><i class="material-icons">place</i> <%= place %></p>
+              <p>We have pulled all required data from BookMyShow, Paytm and IMDB. Click on any movie to find more details.</p>
+            </div>
+                <div id="content">
+                  <br/>
+                  <div class="card-columns">
+                    <% movies.forEach(function(movies){ %>
+                  <div class="card" onclick="">
+                    <div class="card-body text-center">
+                        <p class="card-text" onclick="loadDoc('<%= movies %>')"><%= movies %></p>
+                    </div>
+                </div>
+                  <% }) %> 
+                </div>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong" id="Modal1" hidden>
+                  Launch demo modal
+                </button>
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Movie Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="card" id="containerIntro">
+          <img class="card-img-top" src="" alt="Image" id="Movieimg">
+          <h4 class="card-title" id="movietitle">John Doe</h4>
+          <p class="card-text"><span id="lang">Some example text.</span></p>
+          <p class="card-text"><span id="genre">Some example text.</span>  / <span id="year"></span></p>
+          <p class="card-text">IMDB Rating: <span id="imdb"></span></p>
+          <p class="card-text">Actors: <span id="actors"></span></p>
+          <p class="card-text">Direction: <span id="directors"></span></p>
+          <p class="card-text">Plot: <span id="plot"></span></p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<button type="button" class="btn btn-primary" data-toggle="modal" id="notfound" data-target="#exampleModal" hidden>
+  Launch demo modal
+</button>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Details Not Found!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      Sorry, Movie details not found. We try to improve results.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+                </div>
+    </body>
+</html>
